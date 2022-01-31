@@ -1,0 +1,136 @@
+@import url(./font/font.css);
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'NeueHaasGrotTextRound';
+}
+
+.main-container{
+    height: 100vh;
+    background-color: #F5F4F4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calc{
+    height: 45rem;
+    width: 25rem;
+    background-color: #22252D;
+    color: white;
+    border-radius: 5%;
+    justify-content: center;
+}
+
+/* light mode */
+.calc__mode-container{
+    display: flex;
+    align-self: center; 
+    justify-content: center;
+}
+.calc__mode{
+    display: flex; 
+    background-color: #292D36;
+    border-radius: 10px;
+    align-self: center;
+    text-align: center;
+    font-size: 2rem;
+    margin: 1rem;
+}
+
+.calc__light-mode, .calc__dark-mode{
+    padding: 0 1rem;
+    width: 5rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* history calculator container */
+
+.calc__calc{
+    height: 30%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+   flex-direction: column;
+}
+
+.calc__history{
+   
+    padding:2rem 1rem;
+    font-size: 1.5rem;
+}
+
+.calc__current{ 
+    padding: 0 1rem 2rem 0;
+    font-size: 2.5rem;
+    min-height: 5rem;
+    font-weight: bold;
+    max-width: 100%;
+}
+.calc__pa{
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+}
+
+/* CALC BUTTON CONTAINER */
+
+.calc__button-container{
+    background-color: #292D36 ;
+    margin: 0;
+    pad: 0;
+    border-radius: 5%;
+}
+
+.calc__buttons{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    column-count: 2;
+    
+}
+
+.calc__button{
+    min-height: 4rem;
+    min-width: 4rem;
+    background-color: #272B33;
+    margin: 1rem;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    /* border: none; */
+    color: #fff;
+    cursor: pointer;
+}
+
+
+
+.green-col{
+    color:#26D1B4 ;
+}
+.pink-col{
+    color: #F37A7A;
+}
+.light-mode, .dark-mode{
+/* filter: brightness(0.8) */
+color: #74767C;
+}
+.light-mode:hover,.dark-mode:hover{
+color: #b3b3b8;
+}
+
+.active{
+    color: #b3b3b8;
+}
