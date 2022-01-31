@@ -8,7 +8,7 @@ const clearButton = document.querySelector('[data-clear]')
 const equalsButton = document.querySelector('[data-equals]')
 const deleteButton = document.querySelector('[data-delete]')
 const calcModeContainer = document.querySelector('.calc__mode-container')
-const divide = document.querySelector('.divide')
+
 
 
 class Calculator {
@@ -136,15 +136,20 @@ deleteButton.addEventListener('click', () => {
     calculator.updateDisplay();
 })
 
-// LIGHT MODE
+// LIGHT MODE and local storage
 const theme = document.querySelector("#theme-link");
 
-// Listen for a click on the button
 calcModeContainer.addEventListener("click", function () {
     // If the current URL contains "ligh-theme.css"
+    console.log(theme.href)
     if (theme.getAttribute("href") == "dark-theme.css") {
         theme.href = "light-theme.css";
+        localStorage.setItem('darkMode', 'disabled')
     } else {
         theme.href = "dark-theme.css";
+        localStorage.setItem('darkMode', 'enabled')
     }
 });
+if (localStorage.getItem('darkMode') == 'enabled') {
+    theme.href = "dark-theme.css";
+}
