@@ -1,5 +1,6 @@
 @import url(./font/font.css);
 
+
 *{
     box-sizing: border-box;
 }
@@ -12,7 +13,7 @@ body{
 
 .main-container{
     height: 100vh;
-    background-color: #F5F4F4;
+    background-color: var(--first-background-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -21,8 +22,8 @@ body{
 .calc{
     height: 45rem;
     width: 25rem;
-    background-color: #22252D;
-    color: white;
+    background-color: var(--second-background-color);
+    color: var(--first-text-color);
     border-radius: 5%;
     justify-content: center;
 }
@@ -35,7 +36,7 @@ body{
 }
 .calc__mode{
     display: flex; 
-    background-color: #292D36;
+    background-color: var(--fourth-background-color);
     border-radius: 10px;
     align-self: center;
     text-align: center;
@@ -85,7 +86,7 @@ body{
 /* CALC BUTTON CONTAINER */
 
 .calc__button-container{
-    background-color: #292D36 ;
+    background-color: var(--fourth-background-color) ;
     margin: 0;
     pad: 0;
     border-radius: 5%;
@@ -103,7 +104,7 @@ body{
 .calc__button{
     min-height: 4rem;
     min-width: 4rem;
-    background-color: #272B33;
+    background-color: var(--third-background-color);
     margin: 1rem;
     border-radius: 10px;
     display: flex;
@@ -111,26 +112,25 @@ body{
     align-items: center;
     font-size: 1.5rem;
     /* border: none; */
-    color: #fff;
+    color: var(--first-text-color);
     cursor: pointer;
 }
 
 
 
 .green-col{
-    color:#26D1B4 ;
+    color:var(--second-text-color) ;
 }
 .pink-col{
-    color: #F37A7A;
+    color: var(--third-text-color);
 }
 .light-mode, .dark-mode{
 /* filter: brightness(0.8) */
-color: #74767C;
+color: var(--lightmode-text-color);
 }
-.light-mode:hover,.dark-mode:hover{
-color: #b3b3b8;
+.light-mode:hover,.dark-mode:hover,.active{
+color: var(--lightmode_active-text-color);
 }
 
-.active{
-    color: #b3b3b8;
-}
+/* LIGHT MODE */
+

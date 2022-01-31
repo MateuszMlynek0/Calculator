@@ -1,0 +1,12 @@
+:root{
+    --first-background-color:#F5F4F4;
+    --second-background-color: #22252D;
+    --third-background-color: #272B33;
+    --fourth-background-color: #292D36;
+
+    --first-text-color:#fff;
+    --second-text-color: #26D1B4;
+    --third-text-color: #F37A7A;
+    --lightmode-text-color:  #74767C;
+    --lightmode_active-text-color:  #b3b3b8;
+}

@@ -1,5 +1,5 @@
-const lightMode = document.querySelector('.calc__light-mode')
-const darkMode = document.querySelector('.calc__dark-mode')
+const lightMode = document.querySelector('.light-mode')
+const darkMode = document.querySelector('.dark-mode')
 const historyPa = document.querySelector('.calc__history-pa')
 const currentPa = document.querySelector('.calc__current-pa')
 const operationButtons = document.querySelectorAll('[data-operation]')
@@ -7,6 +7,10 @@ const numberButtons = document.querySelectorAll('[data-number]')
 const clearButton = document.querySelector('[data-clear]')
 const equalsButton = document.querySelector('[data-equals]')
 const deleteButton = document.querySelector('[data-delete]')
+const calcModeContainer = document.querySelector('.calc__mode-container')
+const divide = document.querySelector('.divide')
+
+
 class Calculator {
     constructor(historyPa, currentPa) {
         this.historyPa = historyPa;
@@ -21,7 +25,6 @@ class Calculator {
 
     }
     appendNumber(number) {
-        // this.current = number;
         if (number === '.' && this.current.includes('.')) return
         this.current = this.current.toString() + number.toString();
     }
@@ -54,19 +57,15 @@ class Calculator {
         }
     }
 
-
-
     delete() {
         this.current = this.current.toString().slice(0, -1)
     }
-
 
     compute() {
         let computation
         const prev = parseFloat(this.history)
         const curr = parseFloat(this.current)
         if (isNaN(prev) || isNaN(curr)) return
-
         switch (this.operation) {
 
             case '+': computation = prev + curr;
@@ -76,6 +75,8 @@ class Calculator {
             case '÷': computation = prev / curr;
                 break;
             case '*': computation = prev * curr;
+                break;
+            case '+/-': computation = 1 / curr;
                 break;
             default: return
         }
@@ -87,29 +88,24 @@ class Calculator {
     updateDisplay() {
 
         this.currentPa.innerText = this.getDisplayNumber(this.current)
-
         if (this.operation != null) {
-            this.historyPa.innerText = `${this.getDisplayNumber(this.history)} ${this.operation}`
+            this.historyPa.innerText =
+                `${this.getDisplayNumber(this.history)} ${this.operation}`
         } else {
             this.historyPa.innerText = ''
         }
 
 
-
         if (this.currentPa.innerText.length > 15) {
             currentPa.style.fontSize = '1rem';
         }
-        if (this.history.innerText.length > 25) {
+        if (this.historyPa.innerText.length > 25) {
             currentPa.style.fontSize = '.5rem';
         }
     }
 };
 
-
 const calculator = new Calculator(historyPa, currentPa)
-
-
-
 
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -139,3 +135,16 @@ deleteButton.addEventListener('click', () => {
     calculator.delete()
     calculator.updateDisplay();
 })
+
+// LIGHT MODE
+const theme = document.querySelector("#theme-link");
+
+// Listen for a click on the button
+calcModeContainer.addEventListener("click", function () {
+    // If the current URL contains "ligh-theme.css"
+    if (theme.getAttribute("href") == "dark-theme.css") {
+        theme.href = "light-theme.css";
+    } else {
+        theme.href = "dark-theme.css";
+    }
+});
